@@ -1,0 +1,23 @@
+{
+  "name": "awsdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcnix/node-docker-demo.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jcnix/node-docker-demo/issues"
+  },
+  "homepage": "https://github.com/jcnix/node-docker-demo#readme",
+  "dependencies": {
+    "aws-sdk": "2.538.0",
+    "express": "4.17.1"
+  }
+}

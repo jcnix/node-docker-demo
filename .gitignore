@@ -1,1 +1,3 @@
 *.swp
+config/credentials.js
+node_modules

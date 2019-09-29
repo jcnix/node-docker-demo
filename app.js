@@ -1,14 +1,19 @@
-const http = require('http');
+const express = require('express');
+const posts = require('./server/routes/api/posts.js');
 
-const hostname = '0.0.0.0';
-const port = 8080;
+const app = express();
 
-const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Content-Type', 'text/plain');
-	res.end('Hello World\n');
+app.get('/', (req, res) => {
+	console.log('get');
+	res.send('Hello GET');
 });
 
-server.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
+posts(app);
+
+const server = app.listen(8080, () => {
+	const host = server.address().address;
+	const port = server.address().port;
+
+	console.log(`Server running at http://${host}:${port}/`);
 });
+
