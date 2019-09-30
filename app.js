@@ -4,7 +4,6 @@ const posts = require('./server/routes/api/posts.js');
 const app = express();
 
 app.get('/', (req, res) => {
-	console.log('get');
 	res.send('Hello GET');
 });
 

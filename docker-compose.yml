@@ -1,13 +1,12 @@
 version: '3'
 services:
-        awsdemo:
-                build: .
-                command: 'node app.js'
-                volumes:
-                        - .:/usr/app/
-                        - /usr/app/node_modules
-                ports:
-                        - '8080:8080'
-                environment:
-                        - NODE_ENV=production
-                command: "node app.js"
+    awsdemo:
+        build: .
+        command: 'node app.js'
+        volumes:
+            - .:/usr/app/
+            - /usr/app/node_modules
+        ports:
+            - '8080:8080'
+        environment:
+            - NODE_ENV=production
