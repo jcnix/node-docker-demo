@@ -2,7 +2,6 @@ version: '3'
 services:
     awsdemo:
         build: .
-        command: 'node app.js'
         volumes:
             - .:/usr/app/
             - /usr/app/node_modules
@@ -13,5 +12,6 @@ services:
         depends_on:
             - couchdb
     couchdb:
+        image: 'couchdb'
         ports:
             - '5984:5984'
