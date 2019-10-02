@@ -9,5 +9,7 @@ COPY . .
 
 RUN npm install
 
-CMD ["node", "app.js"]
+VOLUME ["/usr/app"]
+
+ENTRYPOINT ["node", "app.js"]
 

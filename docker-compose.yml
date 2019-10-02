@@ -2,9 +2,11 @@ version: '3'
 services:
     awsdemo:
         build: .
+        image: 'awsdemo'
+        command: 'node app.js'
         volumes:
             - .:/usr/app/
-            - /usr/app/node_modules
+            - ./node_modules:/usr/app/node_modules
         ports:
             - '8080:8080'
         environment:

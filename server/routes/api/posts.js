@@ -1,32 +1,27 @@
-const aws = require('aws-sdk');
-const config = require('../../../config/config.js');
-
+const postDao = require('../../dao/posts.js');
 
 module.exports = (app) => {
-	app.get('/api/posts', (req, res, next) => {
-		aws.config.update(config.config);
+	app.get('/api/insertTest', async (req, res, next) => {
+		const status = await postDao.insertPost();
 
-		const docClient = new aws.DynamoDB.DocumentClient();
-
-		const params = {
-			TableName: config.posts_table
-		};
-
-		docClient.scan(params, (err, data) => {
-			if(err) {
-				res.send({
-					success: false,
-					err: err
-				});
-			} else {
-				const {Items} = data;
-
-				res.send({
-					success: true,
-					posts: Items
-				});
-			}
-		});
+		return res.status(200)
+			.send({});
 	});
+	
+	app.get('/api/updatePost', async (req, res, next) => {
+		await postDao.updatePost();
+
+		res.status(200)
+			.send('update successful');
+	});
+
+	app.get('/api/posts', async (req, res, next) => {
+		const posts = await postDao.getPosts();
+		console.log(posts);
+
+		res.status(200)
+			.send(posts);
+	});
+
 };
 
